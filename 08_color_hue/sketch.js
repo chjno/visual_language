@@ -11,6 +11,7 @@ var speedX = 0;
 var speedY = 0;
 var origins = [450, 570, 690, 810];
 var index = 0;
+cardCount = 0;
 
 function preload() {
   face = loadImage('face.png');
@@ -53,6 +54,12 @@ function draw() {
   }
   if (cardX > width || cardX + cardW < 0) {
     index++;
+    cardCount++;
+    if (cardCount == 52) {
+      background('green');
+      lonely();
+      noLoop();
+    }
     if (index > 3) {
       index = 0;
     }
