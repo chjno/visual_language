@@ -22,7 +22,10 @@ function setup() {
   createCanvas(1000, 600);
   background('green');
   colorMode(HSB);
-
+  
+  h = random(0,360);
+  
+  // chino card
   fill(32, 23, 94);
   rect(80, 20, cardW, cardH, cardR);
   image(face, 91, 70);
