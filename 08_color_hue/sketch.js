@@ -86,10 +86,12 @@ function draw() {
 }
 
 function mousePressed() {
-  if (!animate && mouseX > 415 && mouseX < 495 && mouseY > 325 && mouseY < 345) {
-    newGame();
-    animate = true;
-  } else {
-    sound.play();
+  if (!animate) {
+    if (mouseX > 415 && mouseX < 495 && mouseY > 325 && mouseY < 345) {
+      newGame();
+      animate = true;
+    } else {
+      sound.play();
+    }
   }
 }
