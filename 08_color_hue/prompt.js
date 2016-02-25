@@ -56,5 +56,6 @@ function lonely() {
   strokeWeight(0.1);
   text('Yes', 445, 340);
 
+  fill(172, 173, 166);
   text('No', 535, 340);
 }
