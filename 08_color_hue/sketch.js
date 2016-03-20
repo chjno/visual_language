@@ -105,6 +105,9 @@ function mousePressed() {
     if (mouseX > promptX + 15 && mouseX < promptX + 95 && mouseY > 325 && mouseY < 345) {
       newGame();
       animate = true;
+    } else if (touchX > promptX + 15 && touchX < promptX + 95 && touchY > 325 && touchY < 345) {
+      newGame();
+      animate = true;
     } else {
       sound.play();
     }
