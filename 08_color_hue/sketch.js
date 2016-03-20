@@ -14,7 +14,7 @@ var index = 0;
 var cardCount = 0;
 var animate = true;
 
-var canvasWidth = 870;
+var canvasWidth = 850;
 var canvasHeight = 600;
 var promptX = canvasWidth/2 - 100;
 
