@@ -9,10 +9,14 @@ var cardY = 20;
 var gravity = 1;
 var speedX = 0;
 var speedY = 0;
-var origins = [450, 570, 690, 810];
+var origins = [];
 var index = 0;
 var cardCount = 0;
 var animate = true;
+
+var canvasWidth = 870;
+var canvasHeight = 600;
+var promptX = canvasWidth/2 - 100;
 
 function preload() {
   face = loadImage('face.png');
@@ -20,7 +24,16 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(1000, 600);
+  createCanvas(canvasWidth, canvasHeight);
+
+  for (var i = 0; i < 4; i++){
+    origins[3 - i] = canvasWidth - 130 - i * 120;
+  }
+
+  cardX = origins[0];
+  speedX = 5;
+  speedY = -1;
+
   colorMode(HSB);
 
   newGame();
@@ -33,19 +46,20 @@ function newGame() {
 
   // chino card
   fill(32, 23, 94);
-  rect(80, 20, cardW, cardH, cardR);
-  image(face, 91, 70);
+  rect(20, 20, cardW, cardH, cardR);
+  image(face, 31, 70);
 
   // starting cards
   for (var i = 0; i < 4; i++) {
     fill(0 + i * 90, s, b);
-    rect(450 + i * 120, 20, cardW, cardH, cardR);
+    var x = origins[i];
+    rect(x, 20, cardW, cardH, cardR);
   }
 }
 
-cardX = 450;
-speedX = 5;
-speedY = -1;
+// cardX = origins[0];
+// speedX = 5;
+// speedY = -1;
 
 function draw() {
   if (animate) {
@@ -68,6 +82,7 @@ function draw() {
       cardCount++;
       if (cardCount == 52) {
         background('green');
+        sound.play();
         lonely();
         animate = false;
       }
@@ -87,7 +102,7 @@ function draw() {
 
 function mousePressed() {
   if (!animate) {
-    if (mouseX > 415 && mouseX < 495 && mouseY > 325 && mouseY < 345) {
+    if (mouseX > promptX + 15 && mouseX < promptX + 95 && mouseY > 325 && mouseY < 345) {
       newGame();
       animate = true;
     } else {
