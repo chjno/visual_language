@@ -27,7 +27,7 @@ function setup() {
   createCanvas(canvasWidth, canvasHeight);
 
   for (var i = 0; i < 4; i++){
-    origins[3 - i] = canvasWidth - 130 - i * 120;
+    origins[3 - i] = canvasWidth - 125 - i * 120;
   }
 
   cardX = origins[0];
